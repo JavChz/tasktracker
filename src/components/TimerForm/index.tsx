@@ -1,0 +1,54 @@
+import { useTaskStore } from "../../store/useTaskStore";
+import { formatHours } from "../../libs/formatHours";
+import { CheckCircle2 } from "lucide-react";
+
+export function TimerForm() {
+  const nameTask = useTaskStore((state) => state.nameTask);
+  const setNameTask = useTaskStore((state) => state.setNameTask);
+  const tasks = useTaskStore((state) => state.tasks);
+  const setTasks = useTaskStore((state) => state.setTasks);
+  const timer = useTaskStore((state) => state.timer);
+  const pause = useTaskStore((state) => state.pause);
+  const startTask = useTaskStore((state) => state.startTask);
+
+  return (
+    <div className="flex flex-col items-center w-full gap-6">
+      <div className="w-full grid border border-border/50 bg-background/50 rounded-2xl grid-cols-1 sm:grid-cols-[1fr_auto] shadow-inner divide-y sm:divide-y-0 sm:divide-x divide-border/50">
+        <input
+          type="text"
+          value={nameTask}
+          onChange={(e) => setNameTask(e.target.value)}
+          placeholder="What are you working on?"
+          className="bg-transparent border-none outline-none text-xl p-6 text-text-primary placeholder-text-tertiary focus:ring-0 min-w-0"
+        />
+        <div className="flex items-center px-6 py-4 md:py-0">
+          <span className="text-text-secondary mr-2 text-sm font-semibold tracking-wider uppercase whitespace-nowrap">Task #</span>
+          <input
+            type="number"
+            value={tasks}
+            onChange={(e) => setTasks(Number(e.target.value))}
+            className="bg-transparent text-xl font-bold text-primary outline-none"
+            style={{ width: `${Math.max(3, String(tasks).length + 2)}ch` }}
+          />
+        </div>
+      </div>
+
+      <div className="flex flex-col items-center gap-2 my-2">
+        <h3 className="text-text-tertiary font-medium tracking-widest uppercase text-sm">Time in current task</h3>
+        <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-text-primary drop-shadow-md">
+          {formatHours(timer)}
+        </h2>
+      </div>
+
+      <button
+        onClick={() => startTask()}
+        disabled={pause}
+        className="group relative flex items-center justify-center gap-2 w-full md:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-primary to-primary-hover text-white font-bold text-lg transition-all duration-300 disabled:opacity-50 disabled:grayscale disabled:cursor-not-allowed hover:shadow-[0_0_30px_rgba(99,102,241,0.5)] hover:-translate-y-1 overflow-hidden"
+      >
+        <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
+        <CheckCircle2 className="relative z-10" />
+        <span className="relative z-10 tracking-wide">Finish Current Task</span>
+      </button>
+    </div>
+  );
+}

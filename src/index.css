@@ -1,121 +1,29 @@
-/*reset*/
+@import "tailwindcss";
 
-article,
-aside,
-canvas,
-details,
-figcaption,
-figure,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-footer,
-header,
-menu,
-nav,
-section,
-summary,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-html,
-body,
-div,
-span,
-object,
-iframe,
-pre,
-cite,
-code,
-del,
-q,
-img,
-ins,
-em,
-b,
-i,
-strong,
-table,
-caption,
-tr,
-th,
-td,
-time,
-mark,
-audio,
-video {
-  background: transparent;
-  border: 0;
-  font-size: 100%;
-  margin: 0;
-  outline: 0;
-  padding: 0;
-  vertical-align: baseline;
-}
-article,
-aside,
-figure,
-footer,
-header,
-menu,
-nav,
-section {
-  display: block;
-}
-nav ul {
-  list-style: none;
-}
-a {
-  background: transparent;
-  font-size: 100%;
-  margin: 0;
-  padding: 0;
-  vertical-align: baseline;
-}
-h1 {
-  font-size: 2rem;
-}
-h2 {
-  font-size: 1.8rem;
-}
-h3 {
-  font-size: 1.4rem;
-}
-h4 {
-  font-size: 1.2rem;
-}
-h5 {
-  font-size: 1.1rem;
-}
-h6 {
-  font-size: 1rem;
+@theme {
+  --font-sans: "Inter", "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  
+  --color-background: #0f1115;
+  --color-surface: #1e2128;
+  --color-surface-hover: #2a2e37;
+  
+  --color-primary: #6366f1;
+  --color-primary-hover: #4f46e5;
+  
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #94a3b8;
+  --color-text-tertiary: #64748b;
+  
+  --color-border: #334155;
+  --color-accent: #10b981;
+  --color-danger: #ef4444;
 }
 
-html {
-  font-size: 100%;
-}
-body {
-  margin: 0;
-  font-family: Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+@layer base {
+  body {
+    @apply bg-background text-text-primary font-sans antialiased;
+    background-image: radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.05), transparent 25%),
+                      radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.05), transparent 25%);
+    background-attachment: fixed;
+  }
 }

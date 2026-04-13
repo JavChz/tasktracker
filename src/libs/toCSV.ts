@@ -1,5 +1,7 @@
 // Function to convert JSON to CSV
-function jsonToCsv(jsonObject) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function jsonToCsv(jsonObject: any[]): string {
+  if (jsonObject.length === 0) return "";
   const header = Object.keys(jsonObject[0]);
   const rows = jsonObject.map((obj) => header.map((key) => obj[key]));
   const csvContent = [header, ...rows].map((e) => e.join(",")).join("\n");
@@ -7,7 +9,9 @@ function jsonToCsv(jsonObject) {
 }
 
 // Function to download CSV file
-export function downloadCsv(jsonObject, fileName = "data.csv") {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function downloadCsv(jsonObject: any[], fileName = "data.csv"): void {
+  if (jsonObject.length === 0) return;
   const csvContent = jsonToCsv(jsonObject);
   const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
   const link = document.createElement("a");
