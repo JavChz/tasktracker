@@ -10,6 +10,13 @@
 
 # production
 /build
+/dist
+/dist-ssr
+/*.local
+
+# built-in
+tsconfig.node.tsbuildinfo
+tsconfig.tsbuildinfo
 
 # misc
 .DS_Store

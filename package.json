@@ -1,8 +1,9 @@
 {
   "name": "tasktracker",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "homepage": "http://javchz.github.io/tasktracker",
   "private": true,
+  "license": "MIT",
   "type": "module",
   "dependencies": {
     "lucide-react": "^0.453.0",
@@ -27,4 +28,4 @@
     "typescript": "^5.6.2",
     "vite": "^6.0.0"
   }
-}
+}
