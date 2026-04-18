@@ -15,7 +15,7 @@ export function ToolsButtons() {
       <Button
         variant="secondary"
         onClick={() => deleteLastTask()}
-        disabled={tasks <= 1}
+        disabled={tasks <= 0}
         title="Undo last task"
         icon={<Undo2 size={18} className="group-hover:-rotate-45 transition-transform" />}
         className="group"

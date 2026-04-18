@@ -6,11 +6,7 @@ export function Goals() {
   const setGoal = useTaskStore((state) => state.setGoal);
   const tasks = useTaskStore((state) => state.tasks);
 
-  // Use tasks - 1 because 'tasks' represents the *next* task ID to be completed.
-  // Wait, let's keep original math: it was (100 / goal) * tasks.
-  // If tasks = 1 (init default), progress = 10%. We might want tasks - 1. 
-  // We'll stick to original logic to not break parity, but tasks-1 makes more sense if task is current.
-  // Actually, wait, original: let progress = (100 / goal) * tasks;
+  // Calculate progress based on completed tasks.
   const progress = (100 / goal) * tasks;
 
   return (

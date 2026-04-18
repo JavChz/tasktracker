@@ -38,7 +38,7 @@ interface TaskState {
 export const useTaskStore = create<TaskState>()(
   persist(
     (set, get) => ({
-      tasks: 1,
+      tasks: 0,
       timerGlobal: 0,
       archive: [],
       goal: 10,
@@ -57,7 +57,7 @@ export const useTaskStore = create<TaskState>()(
       startTask: () => {
         const { tasks, nameTask, timer, archive } = get();
         const entryArchive: TaskArchiveEntry = {
-          id: tasks,
+          id: tasks + 1,
           name: nameTask,
           duration: timer,
           endAt: Date.now(),
@@ -95,7 +95,7 @@ export const useTaskStore = create<TaskState>()(
             tasks: tasks - 1
           });
         } else {
-           set({ timer: 0, tasks: tasks > 1 ? tasks - 1 : 1 });
+           set({ timer: 0, tasks: tasks > 0 ? tasks - 1 : 0 });
         }
       },
       
@@ -103,7 +103,7 @@ export const useTaskStore = create<TaskState>()(
         localStorage.clear();
         set({
            archive: [],
-           tasks: 1,
+           tasks: 0,
            timer: 0,
            pause: true,
            timerGlobal: 0,

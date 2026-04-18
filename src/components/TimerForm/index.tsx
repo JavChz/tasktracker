@@ -26,10 +26,11 @@ export function TimerForm() {
           <span className="text-text-secondary mr-2 text-sm font-semibold tracking-wider uppercase whitespace-nowrap">Task #</span>
           <input
             type="number"
-            value={tasks}
-            onChange={(e) => setTasks(Number(e.target.value))}
+            value={tasks + 1}
+            onChange={(e) => setTasks(Math.max(1, Number(e.target.value)) - 1)}
+            min="1"
             className="bg-transparent text-xl font-bold text-primary outline-none"
-            style={{ width: `${Math.max(3, String(tasks).length + 2)}ch` }}
+            style={{ width: `${Math.max(3, String(tasks + 1).length + 2)}ch` }}
           />
         </div>
       </div>

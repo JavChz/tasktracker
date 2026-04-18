@@ -27,7 +27,7 @@ export default function App() {
   const timer = useTaskStore((state) => state.timer);
   const tasks = useTaskStore((state) => state.tasks);
   useEffect(() => {
-    document.title = `${formatHours(timer)} | Task ${tasks}`;
+    document.title = `${formatHours(timer)} | Task ${tasks + 1} | TaskTracker`;
   }, [timer, tasks]);
 
   const handleDownload = () => {
