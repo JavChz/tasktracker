@@ -26,4 +26,8 @@
                       radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.05), transparent 25%);
     background-attachment: fixed;
   }
+
+  button {
+    @apply cursor-pointer;
+  }
 }

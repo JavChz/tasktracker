@@ -8,6 +8,7 @@ import { ToolsButtons } from "../ToolsButtons";
 import { formatHours } from "../../libs/formatHours";
 import { downloadCsv } from "../../libs/toCSV";
 import { Download } from "lucide-react";
+import { Button } from "../ui/Button";
 
 export default function App() {
   const archive = useTaskStore((state) => state.archive);
@@ -56,14 +57,15 @@ export default function App() {
             <span>Average: {archive.length > 0 ? formatHours(timerGlobal / archive.length) : "00:00:00"}</span>
           </div>
 
-          <button
+          <Button
+            variant="ghost"
             onClick={handleDownload}
             disabled={archive.length === 0}
-            className="group flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-accent/20 hover:bg-accent/40 text-accent font-semibold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] shadow-accent/20"
+            className="px-6 py-3 bg-accent/10 hover:bg-accent/20 text-accent border border-accent/20 hover:border-accent/40 group"
+            icon={<Download size={20} className="group-hover:-translate-y-1 transition-transform" />}
           >
-            <Download size={20} className="group-hover:-translate-y-1 transition-transform" />
-            <span>Export CSV</span>
-          </button>
+            Export CSV
+          </Button>
         </div>
 
         {/* Archive */}

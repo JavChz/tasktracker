@@ -1,6 +1,7 @@
 import { useTaskStore } from "../../store/useTaskStore";
 import { formatHours } from "../../libs/formatHours";
 import { CheckCircle2 } from "lucide-react";
+import { Button } from "../ui/Button";
 
 export function TimerForm() {
   const nameTask = useTaskStore((state) => state.nameTask);
@@ -40,15 +41,17 @@ export function TimerForm() {
         </h2>
       </div>
 
-      <button
+      <Button
+        variant="primary"
+        size="lg"
         onClick={() => startTask()}
         disabled={pause}
-        className="group relative flex items-center justify-center gap-2 w-full md:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-primary to-primary-hover text-white font-bold text-lg transition-all duration-300 disabled:opacity-50 disabled:grayscale disabled:cursor-not-allowed hover:shadow-[0_0_30px_rgba(99,102,241,0.5)] hover:-translate-y-1 overflow-hidden"
+        fullWidth
+        className="md:w-auto overflow-hidden group"
+        icon={<CheckCircle2 className="relative z-10" />}
       >
-        <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
-        <CheckCircle2 className="relative z-10" />
         <span className="relative z-10 tracking-wide">Finish Current Task</span>
-      </button>
+      </Button>
     </div>
   );
 }
