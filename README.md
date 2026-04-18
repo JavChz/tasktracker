@@ -82,7 +82,16 @@ npm run deploy
 
 ## 📄 License
 
-This project is open-source. See the [LICENSE](LICENSE) file for more details. (Default: MIT)
+This project is licensed under the [MIT License](LICENSE).
+
+### Third-Party Software
+TaskTracker is powered by excellent open-source software:
+- **[React](https://reactjs.org/)** (MIT)
+- **[Vite](https://vitejs.dev/)** (MIT)
+- **[Tailwind CSS](https://tailwindcss.com/)** (MIT)
+- **[Zustand](https://zustand-demo.pmnd.rs/)** (MIT)
+- **[Lucide React](https://lucide.dev/)** (ISC)
+- **[TypeScript](https://www.typescriptlang.org/)** (Apache 2.0)
 
 ---
 
