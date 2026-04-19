@@ -9,6 +9,7 @@ import { formatHours } from "../../libs/formatHours";
 import { downloadCsv } from "../../libs/toCSV";
 import { Download } from "lucide-react";
 import { Button } from "../ui/Button";
+import { ThemeSwitcher } from "../ThemeSwitcher";
 
 export default function App() {
   const archive = useTaskStore((state) => state.archive);
@@ -35,7 +36,8 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center py-12 px-4 md:px-8">
+    <div className="min-h-screen bg-background flex flex-col items-center py-12 px-4 md:px-8 transition-colors duration-300">
+      <ThemeSwitcher />
       <div className="w-full max-w-3xl flex flex-col gap-8">
 
         {/* Header / Timer section */}
