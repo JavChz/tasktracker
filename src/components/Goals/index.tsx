@@ -21,19 +21,19 @@ export function Goals() {
         </div>
       </div>
       
-      <div className="flex flex-col sm:flex-row items-center gap-3 bg-background/50 py-2 px-4 rounded-xl border border-border/50">
-        <span className="text-primary font-bold">{progress.toFixed(1)}%</span>
-        <span className="text-text-tertiary hidden sm:inline">|</span>
+      <div className="flex flex-col sm:flex-row items-center gap-4 bg-background/50 py-3 px-6 rounded-2xl border border-border/50">
+        <span className="text-primary font-bold text-2xl">{progress.toFixed(1)}%</span>
+        <span className="text-text-tertiary hidden sm:inline text-xl">|</span>
         <div className="flex items-center gap-2">
-          <span className="text-text-primary font-medium">{tasks}</span>
-          <span className="text-text-tertiary text-sm">of</span>
+          <span className="text-text-primary font-bold text-2xl">{tasks}</span>
+          <span className="text-text-secondary text-base">of</span>
           <input
             type="number"
             value={goal}
             onChange={(e) => setGoal(Number(e.target.value))}
             placeholder="No. of Goals"
-            className="bg-transparent text-text-primary font-bold border-b border-border/50 focus:border-primary outline-none text-center"
-            style={{ width: `${Math.max(3, String(goal).length + 2)}ch` }}
+            className="bg-transparent text-text-primary font-bold border-b border-border/50 focus:border-primary outline-none text-center text-2xl"
+            style={{ width: `${Math.max(3, String(goal).length + 1)}ch` }}
             min="1"
           />
         </div>
